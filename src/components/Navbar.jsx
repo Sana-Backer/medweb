@@ -9,10 +9,10 @@ const Navbar = () => {
           Dreams<span className="text-primary-dark">Pharma</span>
         </Link>
         <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-600">
-          <a href="#" className="hover:text-primary transition-colors">Medicines</a>
-          <a href="#" className="hover:text-primary transition-colors">Wellness</a>
-          <a href="#" className="hover:text-primary transition-colors">Personal Care</a>
-          <a href="#" className="hover:text-primary transition-colors">Health Services</a>
+          <Link to="/medicines" className="hover:text-primary transition-colors">Medicines</Link>
+          <Link to="/about" className="hover:text-primary transition-colors">About</Link>
+          <Link to="/privacy" className="hover:text-primary transition-colors">Policy</Link>
+          <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
         </div>
       </div>
 

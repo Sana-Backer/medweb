@@ -3,6 +3,11 @@ import LandingPage from './components/LandingPage';
 import LoginPage from './components/LoginPage';
 import ProductDetailPage from './components/ProductDetailPage';
 import BrowseCategoriesPage from './components/BrowseCategoriesPage';
+import CheckoutPage from './components/CheckoutPage';
+import ProductListingPage from './components/ProductListingPage';
+import AboutPage from './pages/AboutPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
@@ -12,6 +17,11 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/product-detail" element={<ProductDetailPage />} />
         <Route path="/categories" element={<BrowseCategoriesPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/medicines" element={<ProductListingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   );

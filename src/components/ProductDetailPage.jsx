@@ -110,10 +110,10 @@ const ProductDetailPage = () => {
                                     <ShoppingCart className="w-5 h-5" />
                                     Add to Cart
                                 </button>
-                                <button className="flex-1 flex items-center justify-center gap-2 bg-teal-500 text-white py-4 rounded-2xl font-bold hover:bg-teal-600 transition-all">
+                                <Link to="/checkout" className="flex-1 flex items-center justify-center gap-2 bg-teal-500 text-white py-4 rounded-2xl font-bold hover:bg-teal-600 transition-all">
                                     <Zap className="w-5 h-5" />
                                     Buy Now
-                                </button>
+                                </Link>
                             </div>
 
                             <div className="flex items-center gap-2 text-sm text-green-600 font-semibold">
