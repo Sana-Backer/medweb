@@ -1,4 +1,5 @@
 import { Send, Globe, Camera, Briefcase, ShieldCheck, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -21,7 +22,7 @@ const Footer = () => {
                 <div>
                     <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Services</h4>
                     <ul className="space-y-4 text-sm font-medium text-gray-500">
-                        <li><a href="#" className="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
                         <li><a href="#" className="hover:text-primary transition-colors">Support Center</a></li>
                         <li><a href="#" className="hover:text-primary transition-colors">Drug Safety</a></li>
                     </ul>
@@ -31,10 +32,11 @@ const Footer = () => {
                     <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Resources</h4>
                     <ul className="space-y-4 text-sm font-medium text-gray-500">
                         <li><a href="#" className="hover:text-primary transition-colors">Health Resources</a></li>
-                        <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                        <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
                     </ul>
                 </div>
+
 
                 <div>
                     <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Stay Updated</h4>
