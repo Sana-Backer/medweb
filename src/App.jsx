@@ -9,6 +9,10 @@ import AboutPage from './pages/AboutPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ContactPage from './pages/ContactPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
+import RefundPolicyPage from './pages/RefundPolicyPage';
+import ShippingPolicyPage from './pages/ShippingPolicyPage';
+
+
 
 
 function App() {
@@ -21,10 +25,14 @@ function App() {
         <Route path="/categories" element={<BrowseCategoriesPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/medicines" element={<ProductListingPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/aboutus" element={<AboutPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/terms" element={<TermsAndConditionsPage />} />
+        <Route path="/refund-policy" element={<RefundPolicyPage />} />
+        <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+
+
 
       </Routes>
     </Router>

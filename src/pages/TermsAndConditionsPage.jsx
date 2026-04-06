@@ -37,7 +37,7 @@ const TermsAndConditionsPage = () => {
 
                 {/* Content Sections */}
                 <div className="space-y-2">
-                    {/* 1. Use of Website */}
+                    
                     <section>
                         <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-3">
                             <span className="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-sm">1</span>
