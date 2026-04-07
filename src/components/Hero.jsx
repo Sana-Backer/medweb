@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Truck, Clock, FileText, ChevronRight } from 'lucide-react';
 import heroImg from '../assets/pharmacist_hero_1775125270901.png';
 
@@ -19,14 +20,18 @@ const Hero = () => {
                         Order prescriptions and healthcare essentials from the comfort of your home. Expert care delivered to your doorstep.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center gap-4">
-                        <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-hover transition-all hover:scale-[1.02] shadow-lg shadow-primary/20">
-                            <FileText className="w-5 h-5" />
-                            Upload Prescription
-                        </button>
-                        <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-700 px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-50 transition-all border border-gray-200">
-                            Browse Medicines
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
+                        <Link to="/medicines" className="w-full sm:w-auto">
+                            <button className="w-full flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-hover transition-all hover:scale-[1.02] shadow-lg shadow-primary/20">
+                                <FileText className="w-5 h-5" />
+                                Upload Prescription
+                            </button>
+                        </Link>
+                        <Link to="/medicines" className="w-full sm:w-auto">
+                            <button className="w-full flex items-center justify-center gap-2 bg-white text-gray-700 px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-50 transition-all border border-gray-200">
+                                Browse Medicines
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import LoginPage from './components/LoginPage';
+import RegisterPage from './components/RegisterPage';
 import ProductDetailPage from './components/ProductDetailPage';
 import BrowseCategoriesPage from './components/BrowseCategoriesPage';
 import CheckoutPage from './components/CheckoutPage';
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/product-detail" element={<ProductDetailPage />} />
         <Route path="/categories" element={<BrowseCategoriesPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />

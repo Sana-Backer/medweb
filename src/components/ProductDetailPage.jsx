@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
     ShoppingCart, Zap, ChevronRight, Minus, Plus, Shield,
-    Truck, AlertTriangle, Package, Info, CheckCircle, MessageCircle
+    Truck, AlertTriangle, Package, Info, CheckCircle, MessageCircle,
+    Loader2
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+
+// Placeholder images
 import prod1 from '../assets/multivitamin_bottle_1775125347332.png';
 import prod2 from '../assets/blood_pressure_monitor_1775125366361.png';
 import prod3 from '../assets/omega3_capsules_1775125382853.png';
@@ -21,13 +24,41 @@ const relatedProducts = [
 
 const ProductDetailPage = () => {
     const [quantity, setQuantity] = useState(1);
+    const [isUploading, setIsUploading] = useState(false);
+    const fileInputRef = useRef(null);
+    const navigate = useNavigate();
 
     const increment = () => setQuantity(q => q + 1);
     const decrement = () => setQuantity(q => Math.max(1, q - 1));
 
+    const handleUploadClick = () => {
+        fileInputRef.current?.click();
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            setIsUploading(true);
+            // Simulate a successful upload
+            setTimeout(() => {
+                setIsUploading(false);
+                navigate('/checkout');
+            }, 2000);
+        }
+    };
+
     return (
         <div className="min-h-screen flex flex-col bg-white">
             <Navbar />
+
+            {/* Hidden File Input */}
+            <input 
+                type="file" 
+                className="hidden" 
+                ref={fileInputRef} 
+                onChange={handleFileChange}
+                accept="image/*,application/pdf"
+            />
 
             {/* Breadcrumb */}
             <div className="bg-gray-50 border-b border-gray-100 px-6 md:px-12 py-3">
@@ -106,8 +137,23 @@ const ProductDetailPage = () => {
                             <div className="flex flex-col gap-4">
                                 {/* Prescription Controlled Action Area */}
                                 <div className="flex gap-4">
-                                    <button className="flex-1 flex items-center justify-center gap-2 bg-[#f57c00] text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#e65100] transition-all shadow-lg shadow-orange-200">
-                                        Upload Prescription to Continue
+                                    <button 
+                                        disabled={isUploading}
+                                        onClick={handleUploadClick}
+                                        className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg shadow-orange-200 ${
+                                            isUploading 
+                                            ? 'bg-orange-400 cursor-not-allowed text-white' 
+                                            : 'bg-[#f57c00] text-white hover:bg-[#e65100]'
+                                        }`}
+                                    >
+                                        {isUploading ? (
+                                            <>
+                                                <Loader2 className="w-4 h-4 animate-spin" />
+                                                Uploading...
+                                            </>
+                                        ) : (
+                                            'Upload Prescription to Continue'
+                                        )}
                                     </button>
                                 </div>
                                 <p className="text-[11px] text-red-600 font-bold bg-red-50 border border-red-100 px-4 py-2 rounded-xl flex items-center gap-2">

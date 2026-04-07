@@ -1,10 +1,20 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ShoppingCart, User, HelpCircle, Phone, FileText } from 'lucide-react';
+import { Search, ShoppingCart, User, HelpCircle, Phone, FileText, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <nav className="bg-white border-b border-gray-100 py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-4 lg:gap-8">
+        <button 
+          className="lg:hidden p-2 -ml-2 text-gray-600 hover:text-primary transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
         <Link to="/" className="text-primary font-bold text-2xl tracking-tight">
           Dreams<span className="text-primary-dark">Pharma</span>
         </Link>
@@ -40,11 +50,53 @@ const Navbar = () => {
           <Link to="/login" className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500">
             <User className="w-5 h-5" />
           </Link>
-          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors hidden sm:block">
             <HelpCircle className="w-5 h-5" />
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 w-full bg-white border-b border-gray-100 lg:hidden z-50 shadow-xl animate-slide-down">
+          <div className="flex flex-col p-6 gap-4 bg-white/95 backdrop-blur-md">
+            <Link 
+              to="/medicines" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-600 font-medium hover:text-primary py-2 transition-colors border-b border-gray-50"
+            >
+              Medicines
+            </Link>
+            <Link 
+              to="/aboutus" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-600 font-medium hover:text-primary py-2 transition-colors border-b border-gray-50"
+            >
+              About us
+            </Link>
+            <Link 
+              to="/privacy-policy" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-600 font-medium hover:text-primary py-2 transition-colors border-b border-gray-50"
+            >
+              Privacy Policy
+            </Link>
+            <Link 
+              to="/contact" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-600 font-medium hover:text-primary py-2 transition-colors border-b border-gray-50"
+            >
+              Contact
+            </Link>
+            <div className="pt-2 sm:hidden">
+              <button className="w-full flex items-center justify-center gap-2 bg-primary text-white px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary-hover transition-colors shadow-md">
+                <FileText className="w-4 h-4" />
+                Upload Prescription
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { ShoppingCart, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShoppingCart, ChevronDown, ChevronLeft, ChevronRight, Filter, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-// Placeholder images (we'll use colored divs if images aren't available, but let's emulate the design)
+// Placeholder images
 import product1 from '../assets/atorvastatin_product_1775131313326.png';
 import product2 from '../assets/multivitamin_bottle_1775125347332.png';
 import product3 from '../assets/omega3_capsules_1775125382853.png';
@@ -94,113 +94,146 @@ const products = [
 
 const ProductListingPage = () => {
     const [priceRange, setPriceRange] = useState(50);
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+    const FilterContent = () => (
+        <div className="space-y-8">
+            {/* Category */}
+            <div>
+                <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Category</h3>
+                <div className="space-y-3">
+                    {['Pain Relief', 'Cold & Cough', 'Vitamins & Supplements', 'Diabetes Care'].map((item, idx) => (
+                        <label key={idx} className="flex items-center gap-3 cursor-pointer group">
+                            <input
+                                type="checkbox"
+                                className="w-4 h-4 rounded-md border-gray-300 text-blue-600 focus:ring-blue-500 transition-all"
+                                defaultChecked={idx === 0}
+                            />
+                            <span className="text-sm text-gray-600 group-hover:text-blue-600 transition-colors font-medium">{item}</span>
+                        </label>
+                    ))}
+                </div>
+            </div>
+
+            {/* Availability */}
+            <div>
+                <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Availability</h3>
+                <div className="space-y-3">
+                    {[
+                        { id: 'instock', label: 'In Stock', checked: true },
+                        { id: 'prescription', label: 'Prescription Ready', checked: false }
+                    ].map((item, idx) => (
+                        <label key={idx} className="flex items-center gap-3 cursor-pointer group">
+                            <input
+                                type="radio"
+                                name="availability"
+                                defaultChecked={item.checked}
+                                className="w-4 h-4 border-gray-300 text-blue-600 focus:ring-blue-500"
+                            />
+                            <span className="text-sm text-gray-600 group-hover:text-blue-600 transition-colors font-medium">{item.label}</span>
+                        </label>
+                    ))}
+                </div>
+            </div>
+
+            {/* Price Range */}
+            <div>
+                <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Price Range</h3>
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={priceRange}
+                    onChange={(e) => setPriceRange(e.target.value)}
+                    className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                />
+                <div className="flex justify-between items-center mt-3 text-xs text-gray-700 font-bold uppercase">
+                    <span>₹0</span>
+                    <span>₹500+</span>
+                </div>
+            </div>
+
+            {/* Top Brands */}
+            <div>
+                <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Top Brands</h3>
+                <div className="space-y-3">
+                    {['Novartis', 'Pfizer', 'Bayer', 'Merck'].map((item, idx) => (
+                        <label key={idx} className="flex items-center gap-3 cursor-pointer group">
+                            <input
+                                type="checkbox"
+                                className="w-4 h-4 rounded-md border-gray-300 text-blue-600 focus:ring-blue-500"
+                            />
+                            <span className="text-sm text-gray-600 group-hover:text-blue-600 transition-colors font-medium">{item}</span>
+                        </label>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-50 font-sans">
             <Navbar />
 
-            <main className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-8 py-7">
+            {/* Mobile Filter Drawer Overlay */}
+            <div className={`fixed inset-0 z-[100] lg:hidden transition-opacity duration-300 ${isFilterOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsFilterOpen(false)}></div>
+                <aside className={`absolute top-0 left-0 h-full w-[280px] sm:w-[320px] bg-white p-6 shadow-2xl transition-transform duration-300 ease-out flex flex-col ${isFilterOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                    <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
+                        <h3 className="font-extrabold text-[#004c99] text-lg uppercase tracking-wider">Filters</h3>
+                        <button onClick={() => setIsFilterOpen(false)} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                            <X className="w-5 h-5 text-gray-500" />
+                        </button>
+                    </div>
+                    <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                        <FilterContent />
+                    </div>
+                    <div className="mt-6 pt-6 border-t border-gray-100">
+                        <button 
+                            onClick={() => setIsFilterOpen(false)}
+                            className="w-full bg-[#004c99] text-white py-4 rounded-2xl font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-100"
+                        >
+                            Apply Filters
+                        </button>
+                    </div>
+                </aside>
+            </div>
 
-                {/* Header Section */}
-                {/* <div className="mb-6 text-center lg:text-left">
-                    <h1 className="text-4xl font-black text-[#004c99] mb-1 tracking-tight">Our Pharmacy Store</h1>
-                    <p className="text-gray-500 text-base max-w-2xl font-medium">Premium pharmaceutical care and healthcare products delivered to your doorstep with clinical precision.</p>
-                </div> */}
-
-                <div className="flex flex-col lg:flex-row gap-10">
-                    {/* Sidebar */}
-                    <aside className="w-full lg:w-64 flex-shrink-0 space-y-4">
-                        {/* Category */}
-                        <div>
-                            <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Category</h3>
-                            <div className="space-y-3">
-                                {['Pain Relief', 'Cold & Cough', 'Vitamins & Supplements', 'Diabetes Care'].map((item, idx) => (
-                                    <label key={idx} className="flex items-center gap-3 cursor-pointer group">
-                                        <input
-                                            type="checkbox"
-                                            className="w-4 h-4 rounded-md border-gray-300 text-blue-600 focus:ring-blue-500 transition-all"
-                                            defaultChecked={idx === 0}
-                                        />
-                                        <span className="text-sm text-gray-600 group-hover:text-blue-600 transition-colors font-medium">{item}</span>
-                                    </label>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Availability */}
-                        <div>
-                            <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Availability</h3>
-                            <div className="space-y-3">
-                                {[
-                                    { id: 'instock', label: 'In Stock', checked: true },
-                                    { id: 'prescription', label: 'Prescription Ready', checked: false }
-                                ].map((item, idx) => (
-                                    <label key={idx} className="flex items-center gap-3 cursor-pointer group">
-                                        <input
-                                            type="radio"
-                                            name="availability"
-                                            defaultChecked={item.checked}
-                                            className="w-4 h-4 border-gray-300 text-blue-600 focus:ring-blue-500"
-                                        />
-                                        <span className="text-sm text-gray-600 group-hover:text-blue-600 transition-colors font-medium">{item.label}</span>
-                                    </label>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Price Range */}
-                        <div>
-                            <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Price Range</h3>
-                            <input
-                                type="range"
-                                min="0"
-                                max="100"
-                                value={priceRange}
-                                onChange={(e) => setPriceRange(e.target.value)}
-                                className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                            />
-                            <div className="flex justify-between items-center mt-3 text-xs text-gray-700 font-bold uppercase">
-                                <span>₹0</span>
-                                <span>₹500+</span>
-                            </div>
-                        </div>
-
-                        {/* Top Brands */}
-                        <div>
-                            <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Top Brands</h3>
-                            <div className="space-y-3">
-                                {['Novartis', 'Pfizer', 'Bayer', 'Merck'].map((item, idx) => (
-                                    <label key={idx} className="flex items-center gap-3 cursor-pointer group">
-                                        <input
-                                            type="checkbox"
-                                            className="w-4 h-4 rounded-md border-gray-300 text-blue-600 focus:ring-blue-500"
-                                        />
-                                        <span className="text-sm text-gray-600 group-hover:text-blue-600 transition-colors font-medium">{item}</span>
-                                    </label>
-                                ))}
-                            </div>
+            <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-7">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+                    {/* Desktop Sidebar */}
+                    <aside className="hidden lg:block w-64 flex-shrink-0">
+                        <div className="sticky top-28">
+                            <FilterContent />
                         </div>
                     </aside>
 
                     {/* Main Content */}
                     <div className="flex-1">
                         {/* Medical Disclaimer */}
-                        <div className="bg-amber-50 border border-amber-200 p-2 rounded-2xl text-[12px] text-amber-800 mb-6 flex items-start gap-4 shadow-sm">
-                            <span className="text-xl">⚠️</span>
+                        <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-[12px] text-amber-800 mb-8 flex items-start gap-4 shadow-sm">
+                            <span className="text-xl shrink-0">⚠️</span>
                             <div>
                                 <p className="font-black uppercase tracking-wider text-[11px] mb-1">Medical Disclaimer</p>
-                                <p className="font-small">Medicines are sold only on valid prescription. Please consult a registered medical practitioner before use. Inform your pharmacist about other medications you are taking to avoid potential drug interactions.</p>
+                                <p className="font-small opacity-90">Medicines are sold only on valid prescription. Please consult a registered medical practitioner before use. Inform your pharmacist about other medications you are taking to avoid potential drug interactions.</p>
                             </div>
                         </div>
 
                         {/* Toolbar */}
-                        <div className="flex flex-wrap flex-col sm:flex-row justify-end items-center mb-6 pb-2 border-b border-gray-200 gap-4">
-                            {/* <p className="text-gray-500 text-sm font-bold tracking-tight">Showing 6 of 48 products</p> */}
+                        <div className="flex flex-row justify-between lg:justify-end items-center mb-8 pb-4 border-b border-gray-200 gap-4">
+                            <button 
+                                onClick={() => setIsFilterOpen(true)}
+                                className="lg:hidden flex items-center gap-2 bg-white border border-gray-200 px-5 py-3 rounded-2xl text-sm font-bold text-gray-800 hover:bg-gray-50 transition-all shadow-sm active:scale-95"
+                            >
+                                <Filter className="w-4 h-4 text-blue-600" />
+                                Filters
+                            </button>
+
                             <div className="flex items-center gap-2">
-                                <span className="text-sm text-gray-500 font-semibold uppercase text-[10px] tracking-widest">Sort by:</span>
-                                <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 px-5 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all shadow-sm">
+                                <span className="hidden sm:inline text-sm text-gray-500 font-semibold uppercase text-[10px] tracking-widest">Sort by:</span>
+                                <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 px-5 py-3 rounded-2xl text-sm font-bold flex items-center gap-2 transition-all shadow-sm">
                                     Popularity
-                                    <ChevronDown className="w-4 h-4 text-blue-600" />
+                                    <ChevronDown className="w-4 h-4 text-blue-600 text-[10px]" />
                                 </button>
                             </div>
                         </div>
