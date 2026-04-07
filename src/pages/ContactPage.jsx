@@ -8,7 +8,7 @@ const ContactPage = () => {
         <div className="min-h-screen flex flex-col bg-white">
             <Navbar />
 
-            <main className="flex-1 max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-12">
+            <main className="flex-1 mx-auto py-8 lg:py-6">
                 {/* Header Section */}
                 <div className="max-w-3xl mb-8">
                     <h1 className="text-[30px] md:text-[42px] font-bold text-[#1a1c1e] leading-[1.1] mb-4 tracking-tight">
@@ -82,24 +82,31 @@ const ContactPage = () => {
                         <div className="bg-[#004c99] rounded-[28px] p-6 text-white shadow-xl">
                             <h3 className="text-lg font-bold mb-6">Direct Channels</h3>
 
-                            <div className="space-y-6">
-                                <div className="flex gap-4 items-start">
+                            <div className="space-y-4">
+                                <div className="flex gap-4 items-center">
                                     <div className="bg-white/10 p-2.5 rounded-xl backdrop-blur-sm">
                                         <Phone className="w-4 h-4" />
                                     </div>
                                     <div>
-                                        <p className="text-blue-100/70 text-[10px] font-bold uppercase tracking-widest mb-1">Call us </p>
-                                        <p className="text-base font-bold">+91 9878899888</p>
+                                        <p className="text-base font-bold">+91 9995432343</p>
+                                    </div>
+                                </div>
+                                 <div className="flex gap-4 items-center">
+                                    <div className="bg-white/10 p-2.5 rounded-xl backdrop-blur-sm">
+                                        <Phone className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <p className="text-base font-bold">+91 9037952115</p>
                                     </div>
                                 </div>
 
-                                <div className="flex gap-4 items-start">
+                                <div className="flex gap-4 items-center">
                                     <div className="bg-white/10 p-2.5 rounded-xl backdrop-blur-sm">
                                         <Mail className="w-4 h-4" />
                                     </div>
                                     <div>
-                                        <p className="text-blue-100/70 text-[10px] font-bold uppercase tracking-widest mb-1">General support</p>
-                                        <p className="text-base font-bold truncate">support@dreamspharma.com</p>
+                                       
+                                        <p className="text-base font-bold truncate">admin@dreamspharma.in</p>
                                     </div>
                                 </div>
                             </div>
@@ -119,13 +126,13 @@ const ContactPage = () => {
                             </div>
                             <div className="p-6">
                                 <h3 className="text-base font-bold text-[#1a1c1e] mb-2">Corporate Headquarters</h3>
-                                <p className="text-gray-500 text-[13px] leading-relaxed mb-4">
+                                <p className="text-gray-500 text-[13px] leading-relaxed mb-1">
                                  
-                                    Palakkad, Kerala, India
+                                   7/815,7/816, Dreams pharma , Krishna complex 1st floor , Marutharoad PO , Palakkad -678007
                                 </p>
-                                <button className="flex items-center gap-2 text-[#0e5fa3] font-bold text-[12px] hover:gap-3 transition-all">
+                                {/* <button className="flex items-center gap-2 text-[#0e5fa3] font-bold text-[12px] hover:gap-3 transition-all">
                                     Open in Store Locator <ChevronRight className="w-3.5 h-3.5" />
-                                </button>
+                                </button> */}
                             </div>
                         </div>
 

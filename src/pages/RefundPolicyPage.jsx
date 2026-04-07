@@ -205,7 +205,7 @@ const RefundPolicyPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">Email</p>
-                                    <p className="text-blue-600 font-bold text-sm">support@dreamspharma.com</p>
+                                    <p className="text-blue-600 font-bold text-sm">admin@dreamspharma.in</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
@@ -214,7 +214,7 @@ const RefundPolicyPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">Phone</p>
-                                    <p className="text-gray-900 font-bold text-sm">+91 9878898888</p>
+                                    <p className="text-gray-900 font-bold text-sm">+91 9995432343</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
@@ -223,7 +223,7 @@ const RefundPolicyPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">Address</p>
-                                    <p className="text-gray-900 font-bold text-sm leading-tight text-[13px]">DreamsPharma HQ, Palakkad, India</p>
+                                    <p className="text-gray-900 font-bold text-sm leading-tight text-[13px]">7/815,7/816, Dreams pharma , Krishna complex 1st floor , Marutharoad PO , Palakkad -678007</p>
                                 </div>
                             </div>
                         </div>

@@ -119,7 +119,7 @@ const PrivacyPolicyPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Email</p>
-                                    <p className="text-blue-600 font-bold">support@dreamspharma.com</p>
+                                    <p className="text-blue-600 font-bold">admin@dreamspharma.in</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
@@ -128,7 +128,7 @@ const PrivacyPolicyPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Phone</p>
-                                    <p className="text-gray-900 font-bold">+91 9878898888</p>
+                                    <p className="text-gray-900 font-bold">+91 9995432343</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
@@ -137,7 +137,7 @@ const PrivacyPolicyPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Address</p>
-                                    <p className="text-gray-900 font-bold">DreamsPharma Headquarters, Palakkad, India</p>
+                                    <p className="text-gray-900 font-bold">7/815,7/816, Dreams pharma , Krishna complex 1st floor , Marutharoad PO , Palakkad -678007</p>
                                 </div>
                             </div>
                         </div>
