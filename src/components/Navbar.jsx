@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-600">
           <Link to="/medicines" className="hover:text-primary transition-colors">Medicines</Link>
           <Link to="/aboutus" className="hover:text-primary transition-colors">About us</Link>
-          <Link to="/privacy" className="hover:text-primary transition-colors">Policy</Link>
+          <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
           <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
         </div>
       </div>

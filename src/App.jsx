@@ -26,7 +26,7 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/medicines" element={<ProductListingPage />} />
         <Route path="/aboutus" element={<AboutPage />} />
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/terms" element={<TermsAndConditionsPage />} />
         <Route path="/refund-policy" element={<RefundPolicyPage />} />

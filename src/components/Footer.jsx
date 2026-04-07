@@ -12,6 +12,11 @@ const Footer = () => {
                     <p className="text-gray-500 leading-relaxed text-sm">
                         Empowering healthier lives through technology-driven pharmaceutical care and human compassion.
                     </p>
+                    <div className="space-y-3 text-sm text-gray-600 font-medium">
+                        <p>📍 123 Pharma Street, Healthcare City, IN 110001</p>
+                        <p>📧 support@dreamspharma.com</p>
+                        <p>📞 +91 (800) 123-4567</p>
+                    </div>
                     <div className="flex items-center gap-4">
                         <a href="#" className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"><Globe className="w-5 h-5" /></a>
                         <a href="#" className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"><Send className="w-5 h-5" /></a>
@@ -30,13 +35,12 @@ const Footer = () => {
 
                 <div>
                     <h4 className="font-bold text-gray-900 mb-6 uppercase text-xs tracking-widest">Resources</h4>
-                    <ul className="space-y-4 text-sm font-medium text-gray-500">
-                        <li><a href="#" className="hover:text-primary transition-colors">Health Resources</a></li>
-                        <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-                        <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-                        <li><Link to="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</Link></li>
-                        <li><Link to="/shipping-policy" className="hover:text-primary transition-colors">Shipping Policy</Link></li>
-                    </ul>
+                    <div className="flex flex-col gap-3 text-sm text-gray-500">
+                        <Link to="/privacy-policy">Privacy Policy</Link>
+                        <Link to="/terms">Terms & Conditions</Link>
+                        <Link to="/refund-policy">Refund Policy</Link>
+                        <Link to="/shipping-policy">Shipping Policy</Link>
+                    </div>
                 </div>
 
 

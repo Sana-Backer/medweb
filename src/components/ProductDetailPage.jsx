@@ -34,20 +34,18 @@ const ProductDetailPage = () => {
                 <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm text-gray-500">
                     <Link to="/" className="hover:text-primary transition-colors">Home</Link>
                     <ChevronRight className="w-4 h-4" />
-                    <span className="hover:text-primary cursor-pointer transition-colors">Medicines</span>
-                    <ChevronRight className="w-4 h-4" />
-                    <span className="hover:text-primary cursor-pointer transition-colors">Heart Care</span>
+                    <Link to="/medicines" className="hover:text-primary transition-colors">Medicines</Link>
                     <ChevronRight className="w-4 h-4" />
                     <span className="font-bold text-gray-900">Atorvastatin</span>
                 </div>
             </div>
 
-            <main className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-12 py-12">
+            <main className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-12 py-6">
                 {/* Product Top Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-3">
                     {/* Left: Product Image */}
                     <div>
-                        <div className="rounded-3xl bg-gray-50 border border-gray-100 p-12 flex items-center justify-center aspect-square relative overflow-hidden">
+                        <div className="rounded-3xl bg-gray-50 border border-gray-100 p-6 flex items-center justify-center aspect-square relative overflow-hidden">
                             <img
                                 src={productImg}
                                 alt="Atorvastatin 20mg"
@@ -67,7 +65,7 @@ const ProductDetailPage = () => {
                     </div>
 
                     {/* Right: Product Info */}
-                    <div className="space-y-8">
+                    <div className="space-y-6">
                         {/* Prescription badge */}
                         <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1.5 rounded-full border border-orange-200">
                             <AlertTriangle className="w-3 h-3" />
@@ -105,15 +103,17 @@ const ProductDetailPage = () => {
                                 </div>
                             </div>
 
-                            <div className="flex gap-4">
-                                <button className="flex-1 flex items-center justify-center gap-2 bg-primary text-white py-4 rounded-2xl font-bold hover:bg-primary-hover transition-all shadow-lg shadow-primary/20 hover:scale-[1.02]">
-                                    <ShoppingCart className="w-5 h-5" />
-                                    Add to Cart
-                                </button>
-                                <Link to="/checkout" className="flex-1 flex items-center justify-center gap-2 bg-teal-500 text-white py-4 rounded-2xl font-bold hover:bg-teal-600 transition-all">
-                                    <Zap className="w-5 h-5" />
-                                    Buy Now
-                                </Link>
+                            <div className="flex flex-col gap-4">
+                                {/* Prescription Controlled Action Area */}
+                                <div className="flex gap-4">
+                                    <button className="flex-1 flex items-center justify-center gap-2 bg-[#f57c00] text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#e65100] transition-all shadow-lg shadow-orange-200">
+                                        Upload Prescription to Continue
+                                    </button>
+                                </div>
+                                <p className="text-[11px] text-red-600 font-bold bg-red-50 border border-red-100 px-4 py-2 rounded-xl flex items-center gap-2">
+                                    <AlertTriangle className="w-3.5 h-3.5" />
+                                    This medicine will be dispensed only after verification of a valid prescription.
+                                </p>
                             </div>
 
                             <div className="flex items-center gap-2 text-sm text-green-600 font-semibold">
@@ -138,11 +138,24 @@ const ProductDetailPage = () => {
                     </div>
                 </div>
 
+                {/* Medical Disclaimer Section */}
+                <div className="bg-amber-50 border border-amber-200 p-4 rounded-3xl mb-8 flex flex-col md:flex-row items-center gap-5 shadow-sm">
+                    <div className="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 flex-shrink-0">
+                        <AlertTriangle className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <h4 className="font-black text-amber-900 uppercase text-[10px] tracking-widest mb-1">Mandatory Medical Disclaimer</h4>
+                        <p className="text-xs text-amber-800 font-medium leading-relaxed">
+                            Medicines are sold strictly on valid prescription. Please consult a registered medical practitioner before use. Inform your healthcare provider about existing conditions and other medications to avoid adverse reactions.
+                        </p>
+                    </div>
+                </div>
+
                 {/* Product Description Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-                    <div className="lg:col-span-2 space-y-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+                    <div className="lg:col-span-2 space-y-6">
                         <div>
-                            <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Product Description</h2>
+                            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Product Description</h2>
                             <p className="text-gray-600 leading-[1.9]">
                                 Atorvastatin belongs to a group of medicines called statins. It works by reducing the amount of cholesterol made by the liver. Lowering "bad" cholesterol and triglycerides and raising "good" cholesterol decreases the risk of heart disease and helps prevent strokes and heart attacks. This premium pharmaceutical preparation is formulated for optimal absorption and stability.
                             </p>
