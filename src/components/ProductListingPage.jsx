@@ -102,14 +102,14 @@ const ProductListingPage = () => {
             <main className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-8 py-7">
 
                 {/* Header Section */}
-                <div className="mb-6 text-center lg:text-left">
+                {/* <div className="mb-6 text-center lg:text-left">
                     <h1 className="text-4xl font-black text-[#004c99] mb-1 tracking-tight">Our Pharmacy Store</h1>
                     <p className="text-gray-500 text-base max-w-2xl font-medium">Premium pharmaceutical care and healthcare products delivered to your doorstep with clinical precision.</p>
-                </div>
+                </div> */}
 
                 <div className="flex flex-col lg:flex-row gap-10">
                     {/* Sidebar */}
-                    <aside className="w-full lg:w-64 flex-shrink-0 space-y-10">
+                    <aside className="w-full lg:w-64 flex-shrink-0 space-y-4">
                         {/* Category */}
                         <div>
                             <h3 className="font-extrabold text-[#004c99] mb-4 text-sm uppercase tracking-wider">Category</h3>
@@ -185,17 +185,17 @@ const ProductListingPage = () => {
                     {/* Main Content */}
                     <div className="flex-1">
                         {/* Medical Disclaimer */}
-                        <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-[13px] text-amber-800 mb-6 flex items-start gap-4 shadow-sm">
+                        <div className="bg-amber-50 border border-amber-200 p-2 rounded-2xl text-[12px] text-amber-800 mb-6 flex items-start gap-4 shadow-sm">
                             <span className="text-xl">⚠️</span>
                             <div>
                                 <p className="font-black uppercase tracking-wider text-[11px] mb-1">Medical Disclaimer</p>
-                                <p className="font-medium">Medicines are sold only on valid prescription. Please consult a registered medical practitioner before use. Inform your pharmacist about other medications you are taking to avoid potential drug interactions.</p>
+                                <p className="font-small">Medicines are sold only on valid prescription. Please consult a registered medical practitioner before use. Inform your pharmacist about other medications you are taking to avoid potential drug interactions.</p>
                             </div>
                         </div>
 
                         {/* Toolbar */}
-                        <div className="flex flex-wrap flex-col sm:flex-row justify-between items-center mb-6 pb-2 border-b border-gray-200 gap-4">
-                            <p className="text-gray-500 text-sm font-bold tracking-tight">Showing 6 of 48 products</p>
+                        <div className="flex flex-wrap flex-col sm:flex-row justify-end items-center mb-6 pb-2 border-b border-gray-200 gap-4">
+                            {/* <p className="text-gray-500 text-sm font-bold tracking-tight">Showing 6 of 48 products</p> */}
                             <div className="flex items-center gap-2">
                                 <span className="text-sm text-gray-500 font-semibold uppercase text-[10px] tracking-widest">Sort by:</span>
                                 <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 px-5 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all shadow-sm">

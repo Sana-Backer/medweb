@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 import ShippingPolicyPage from './pages/ShippingPolicyPage';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -18,6 +19,7 @@ import ShippingPolicyPage from './pages/ShippingPolicyPage';
 function App() {
   return (
     <Router>
+       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
