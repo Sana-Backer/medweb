@@ -13,26 +13,26 @@ const PrivacyPolicyPage = () => {
         <div className="min-h-screen flex flex-col bg-white font-sans">
             <Navbar />
 
-            <main className="flex-1  mx-auto px-6 py-8 lg:py-8 w-full">
+            <main className="flex-1 max-w-7xl mx-auto px-8 py-2 w-full">
                 {/* Header Section */}
-                <div className="border-b border-gray-200 pb-4 mb-6">
-                    <h1 className="text-3xl md:text-3xl font-semibold text-gray-900 mb-4 tracking-tight">
+                <div className="border-b border-gray-200 pb-4 mb-1">
+                    <h1 className="text-xl font-medium text-gray-900 mb-1 tracking-tight">
                         Privacy Policy
                     </h1>
-                    <p className="text-sm text-gray-500 font-medium tracking-wide">
+                    <p className="text-sm text-gray-500 tracking-wide">
                         Last Updated: {today}
                     </p>
                 </div>
 
                 {/* Introduction */}
-                <div className="prose prose-blue max-w-none mb-8">
+                <div className="prose prose-blue max-w-none mb-4">
                     <p className="text-gray-700 leading-relaxed text-base">
                         This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use the <strong>DreamsPharma</strong> service and tells you about your privacy rights and how the law protects you. We use your personal data to provide and improve the service. By using the website you agree to the collection and use of information in accordance with this Privacy Policy.
                     </p>
                 </div>
 
                 {/* Policy Content */}
-                <div className="space-y-8">
+                <div className="space-y-5">
                     {/* 1. Information We Collect */}
                     <section>
                         <h2 className="text-xl font-bold text-gray-900 mb-3 border-l-4 border-blue-600 pl-4">

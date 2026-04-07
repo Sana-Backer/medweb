@@ -28,7 +28,7 @@ const AboutPage = () => {
                             <p className="text-[#5f6c7b] text-[15px] xl:text-[18px]  leading-[1.65] pt-2 font-medium">
                                 At Dreams Pharma, we believe pharmacy care should be more than a transaction. It's a commitment to your long-term vitality.
                             </p>
-                            <div className="flex items-center gap-8 pt-6">
+                            {/* <div className="flex items-center gap-8 pt-6">
                                 <button className="bg-[#0e5fa3] hover:bg-[#0b4d84] text-white font-bold py-4 px-10 rounded-[14px] transition-colors text-[18px] shadow-sm">
                                     Our Services
                                 </button>
@@ -36,7 +36,7 @@ const AboutPage = () => {
                                     Read the Story
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
 
                         {/* Right Image */}

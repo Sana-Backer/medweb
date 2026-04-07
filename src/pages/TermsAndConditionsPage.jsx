@@ -13,22 +13,22 @@ const TermsAndConditionsPage = () => {
         <div className="min-h-screen flex flex-col bg-white font-sans">
             <Navbar />
 
-            <main className="flex-1 max-w-7xl mx-auto px-6 py-8 lg:py-5 w-full">
+            <main className="flex-1 max-w-7xl mx-auto px-8 py-2 w-full">
                 {/* Header Section */}
-                <div className="border-b border-gray-200 pb-4 mb-6">
-                    <h1 className="text-3xl font-semibold text-gray-900 mb-2 tracking-tight">
+                <div className="border-b border-gray-200 pb-4 mb-1">
+                    <h1 className="text-xl font-medium text-gray-900 mb-1 tracking-tight">
                         Terms & Conditions
                     </h1>
-                    <p className="text-sm text-gray-500 font-medium tracking-wide uppercase">
+                    <p className="text-sm text-gray-500 tracking-wide">
                         Last Updated: {today}
                     </p>
                 </div>
 
                 {/* Introduction */}
-                <div className="prose prose-blue max-w-none mb-2">
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="prose prose-blue max-w-none mb-1">
+                    <p className="text-md text-gray-700 leading-relaxed">
                         Welcome to <strong>DreamsPharma</strong>. These Terms & Conditions  constitute a legally binding agreement between you and DreamsPharma governing your access to and use of our website and the services offered through it.</p>
-                    <p className="text-lg text-gray-700 leading-relaxed ">
+                    <p className="text-md text-gray-700 leading-relaxed ">
                         By accessing, browsing, or using this website, you acknowledge that you have read, understood, and agree to be bound by these Terms, along with our Privacy Policy and other applicable policies.
                     </p>
                 </div>

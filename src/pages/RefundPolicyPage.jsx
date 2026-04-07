@@ -13,28 +13,28 @@ const RefundPolicyPage = () => {
         <div className="min-h-screen flex flex-col bg-white font-sans">
             <Navbar />
 
-            <main className="flex-1 max-w-7xl mx-auto px-6 py-8 lg:py-5 w-full">
+            <main className="flex-1 max-w-7xl mx-auto px-8 py-2 w-full">
                 {/* Header Section */}
-                <div className="border-b border-gray-200 pb-4 mb-6">
-                    <h1 className="text-3xl font-semibold text-gray-900 mb-2 tracking-tight">
+                <div className="border-b border-gray-200 pb-4 mb-3">
+                    <h1 className="text-xl font-medium text-gray-900 tracking-tight">
                         Refund & Cancellation Policy
                     </h1>
-                    <p className="text-sm text-gray-500 font-medium tracking-wide uppercase">
+                    <p className="text-xs text-gray-500 tracking-wide ">
                         Last Updated: {today}
                     </p>
                 </div>
 
                 {/* Introduction */}
-                <div className="prose prose-blue max-w-none mb-2">
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="prose prose-blue max-w-none mb-1">
+                    <p className="text-md text-gray-700 leading-relaxed">
                         This Refund & Cancellation Policy outlines the terms under which <strong>DreamsPharma</strong> processes cancellations, returns, and refunds for orders placed through our website
                     </p>
-                    <p className="text-lg text-gray-700 leading-relaxed mt-2">
+                    <p className="text-md text-gray-700 leading-relaxed mt-1">
                         By placing an order on our website, you agree to the terms stated below.
                     </p>
                 </div>
 
-                <hr className="my-2 border-gray-100" />
+                <hr className="my-3 border-gray-100" />
 
                 {/* Content Sections */}
                 <div className="space-y-2">

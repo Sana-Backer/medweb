@@ -1,11 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Truck, Clock, FileText, ChevronRight } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Truck, Clock, FileText, ChevronRight, Loader2 } from 'lucide-react';
 import heroImg from '../assets/pharmacist_hero_1775125270901.png';
 
 const Hero = () => {
+    const [isUploading, setIsUploading] = useState(false);
+    const fileInputRef = useRef(null);
+    const navigate = useNavigate();
+
+    const handleUploadClick = () => {
+        fileInputRef.current?.click();
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            setIsUploading(true);
+            setTimeout(() => {
+                setIsUploading(false);
+                navigate('/medicines');
+            }, 2000);
+        }
+    };
+
     return (
         <section className="relative bg-gradient-to-br from-blue-50/50 to-white pt-12 pb-20 px-6 md:px-12 overflow-hidden">
+            {/* Hidden File Input */}
+            <input 
+                type="file" 
+                className="hidden" 
+                ref={fileInputRef} 
+                onChange={handleFileChange}
+                accept="image/*,application/pdf"
+            />
+
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div className="flex-1 space-y-8 z-10">
                     <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm text-sm font-medium text-primary border border-primary/10">
@@ -20,12 +48,28 @@ const Hero = () => {
                         Order prescriptions and healthcare essentials from the comfort of your home. Expert care delivered to your doorstep.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center gap-4">
-                        <Link to="/medicines" className="w-full sm:w-auto">
-                            <button className="w-full flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-hover transition-all hover:scale-[1.02] shadow-lg shadow-primary/20">
-                                <FileText className="w-5 h-5" />
-                                Upload Prescription
-                            </button>
-                        </Link>
+                        <button 
+                            disabled={isUploading}
+                            onClick={handleUploadClick}
+                            className={`w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-full text-lg font-bold transition-all shadow-lg shadow-primary/20 ${
+                                isUploading 
+                                ? 'bg-primary/70 cursor-not-allowed text-white' 
+                                : 'bg-primary text-white hover:bg-primary-hover hover:scale-[1.02]'
+                            }`}
+                        >
+                            {isUploading ? (
+                                <>
+                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                    Uploading...
+                                </>
+                            ) : (
+                                <>
+                                    <FileText className="w-5 h-5" />
+                                    Upload Prescription
+                                </>
+                            )}
+                        </button>
+
                         <Link to="/medicines" className="w-full sm:w-auto">
                             <button className="w-full flex items-center justify-center gap-2 bg-white text-gray-700 px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-50 transition-all border border-gray-200">
                                 Browse Medicines
