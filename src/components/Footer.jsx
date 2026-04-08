@@ -9,9 +9,6 @@ const Footer = () => {
                     <div className="text-primary font-extrabold text-2xl">
                         Dreams<span className="text-primary-dark">Pharma</span>
                     </div>
-                    <p className="text-gray-500 leading-relaxed text-sm">
-                        Empowering healthier lives through technology-driven pharmaceutical care and human compassion.
-                    </p>
                     <div className="space-y-4">
                         <div className="flex items-center gap-3 group cursor-default">
                             <MapPin className="w-4 h-4 text-gray-400 group-hover:text-[#004c99] transition-colors flex-shrink-0" />
@@ -70,6 +67,9 @@ const Footer = () => {
                             <Send className="w-4 h-4" />
                         </button>
                     </div>
+                    <p className="text-sm text-gray-600 mt-3">
+                        We serve both individual customers and licensed pharmacies/medical businesses.
+                    </p>
                 </div>
             </div>
 
